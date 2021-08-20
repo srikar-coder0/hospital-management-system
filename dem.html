@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .body{
+                background-color: #F5CAC3;
+            }
+            .right{
+                
+                width: 78%;
+                height: auto;
+                float: right;
+            }
+            .main{
+                border:2px solid #f28482;
+                width: 20%;
+                height: auto;
+                border-radius: 20px;
+                background-color: #F6BD6D;
+                
+            }
+            input[type=date] ,input[type=time],select{
+                width: 80%;
+                margin-left: 10px;
+                padding: 12px;
+                border: 2px solid darkred;
+                border-radius: 4px;
+                box-sizing: border-box;
+                resize: vertical;
+                color: red;
+                background-color: seashell;
+                border-bottom: 10px;
+                font-size: 20px;
+            }
+            
+
+            .row {
+                
+                border-left: 10px;
+                padding:10px;
+                font-size:20px;
+                color:darkred;
+                
+            }
+
+            input[type=button]{
+                margin-left: 10px;
+                margin-top:10px;
+                padding:10px;
+                width: 100px;
+                font-size: 20px;
+                background-color:green;
+                color: ivory;
+                border:3px solid darkgreen;
+                border-radius: 15px;
+                display: block;
+            }
+            input[type=button]:hover{
+                background-color: greenyellow;
+                border:2px solid darkgreen;
+            }
+
+            .block {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                max-width: 400px;
+                margin: 20px;
+                height: auto;
+                text-align: center;
+                font-family: arial;
+            }
+
+            .doc_name {
+                color: grey;
+                font-size: 22px;
+            }
+
+            .block button {
+                border: none;
+                outline: 0;
+                padding: 12px;
+                color: white;
+                background-color: #000;
+                text-align: center;
+                cursor: pointer;
+                width: 100%;
+                font-size: 18px;
+            }
+
+            .block button:hover {
+                 opacity: 0.7;
+                }
+
+            
+        </style>
+        <script>
+            function newBlock(){
+                var x=document.createElement("div");
+                x.setAttribute("class","block");
+                x.setAttribute("id","block");
+                var im=document.createElement("img");
+                im.setAttribute("src","apolo.jfif");
+                im.alt="No image found";
+                im.style.width="100%";
+                im.style.height="200px"
+                var y=document.getElementById("right")
+                x.appendChild(im);
+                var doc_na=document.createElement("p");
+                doc_na.innerHTML="Dr.Arun Patel"
+                doc_na.setAttribute("class","doc_name")
+                x.appendChild(doc_na);
+
+                var about=document.createElement("p");
+                about.innerHTML="This a good hospital with good management and nursing capabilities and other advantages and we provides service 24*7";
+                about.style.color="red";
+                x.appendChild(about);
+
+                var btn=document.createElement("input");
+                btn.type="button";
+                btn.value="LEARN MORE"
+                btn.style.width="80%";
+                btn.style.margin="auto";
+                btn.style.marginBottom="10px";
+                btn.style.height="40px";
+                x.appendChild(btn);
+                x.style.float="left";
+                y.appendChild(x)
+
+            }
+        </script>
+    </head>
+    <body>
+        <div class="right" id="right">
+  
+        </div>
+        <div class="main">
+            <form action="">
+                <div class="row">ENTER AREA:</div>
+                <select name="area" id="area_select">
+                    <option value="Banglore">Banglore</option>
+                    <option value="Banglore">Banglore</option>
+                    <option value="Banglore">Banglore</option>
+                </select><br>
+                <input type="button" name="area_btn" id="area_btn" value="Apply" onclick="newBlock();">
+
+                <div class="row">MEDICAL FIELD:</div>
+                <select name="med" id="med_select">
+                    <option value="Banglore">Banglore</option>
+                    <option value="Banglore">Banglore</option>
+                    <option value="Banglore">Banglore</option>
+                </select><br>
+                <input type="button" name="med_btn" id="med_btn" value="Apply">
+                <div class="row">ENTER DATE</label>
+                <input type="date" value="Visit Date">
+                <input type="button" name="date_btn" id="date_btn" value="Apply"><br>
+
+                <div class="row">ENTER DATE</label>
+                <input type="time" value="Visit time">
+                <input type="button" name="time_btn" id="time_btn" value="Apply"><br>
+            </form>
+        </div>
+    </body>
+</html>

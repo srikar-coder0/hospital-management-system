@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .right{
+                
+                width: 50%;
+                border:2px solid black;
+                height: auto;
+                margin-right: 300px;
+                float: right;
+                background-color: skyblue;
+                border:5px solid darkblue;
+                border-radius: 20px;
+            }
+            .main{
+                border:2px solid black;
+                width:26%;
+                height: auto;
+                border-radius: 20px;
+                background-color: darksalmon;
+        
+                
+            }
+
+            input[type=text],input[type=number],select{
+                width: 80%;
+                margin-left: 10px;
+                padding: 12px;
+                border: 2px solid darkred;
+                border-radius: 20px;
+                box-sizing: border-box;
+                resize: vertical;
+                color: red;
+                background-color: seashell;
+                border-bottom: 10px;
+                font-size: 20px;
+            }
+
+            .row {
+                
+                border-left: 10px;
+                padding:10px;
+                font-size:20px;
+                color:darkred;
+                
+            }
+
+            input[type=button]{
+                margin:auto;
+                padding:10px;
+                width: 150px;
+                font-size: 20px;
+                background-color:green;
+                color: ivory;
+                border:3px solid darkgreen;
+                border-radius: 20px;
+                display: block;
+            }
+            input[type=button]:hover{
+                background-color: greenyellow;
+                border:2px solid darkgreen;
+            }
+
+            label{
+                color:red;
+                font-size: 20px;
+            }
+            .send{
+                float: right;
+                
+            }
+            .save{
+                margin-left: 600px;
+            }
+            
+        </style>
+        <script>
+            var count=0;
+            function AddtoPrec(){
+                if(count==0){
+                    var hsp_na=document.createElement("p");
+                    hsp_na.innerHTML=document.presc.hsp_name.value;
+                    var x=document.getElementById("right");
+                    hsp_na.style.textAlign="center";
+                    hsp_na.style.fontSize="40px";
+                    hsp_na.style.color="white";
+                    hsp_na.style.borderColor="red";
+                    hsp_na.style.borderRadius="20px";
+                    hsp_na.style.backgroundColor="#F28482"
+                    x.appendChild(hsp_na);
+                    count=count+1;
+
+                    var doc_na=document.createElement("p");
+                    doc_na.innerHTML=document.presc.doc_name.value;
+                    doc_na.style.textAlign="center";
+                    doc_na.style.fontWeight="bold";
+                    doc_na.style.color="white";
+                    doc_na.style.fontSize="30px";
+                    x.appendChild(doc_na);
+
+                    var pa_na=document.createElement("p");
+                    pa_na.innerHTML="PATIENT NAME: "+document.presc.pt_name.value;
+                    pa_na.style.fontWeight="bold";
+                    pa_na.style.color="white";
+                    pa_na.style.fontSize="20px";
+                    x.appendChild(pa_na);
+                }
+                var d=document.createElement("p");
+                d.innerHTML=count+".&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                d.innerHTML=d.innerHTML+document.presc.med.value+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                d.innerHTML=d.innerHTML+document.presc.quan.value+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                if(document.getElementById("time").checked==true){
+                    d.innerHTML=d.innerHTML+" /"+document.presc.mor.value;
+                }
+                if(document.getElementById("time1").checked==true){
+                    d.innerHTML=d.innerHTML+" /"+document.presc.noon.value;
+                }
+                if(document.getElementById("time2").checked==true){
+                    d.innerHTML=d.innerHTML+" /"+document.presc.eve.value;
+                }
+                if(document.getElementById("time3").checked==true){
+                    d.innerHTML=d.innerHTML+" /"+document.presc.night.value;
+                }
+                var y=document.getElementById("right");
+                d.style.fontWeight="bold";
+                d.style.fontSize="20px";
+                y.appendChild(d);
+                count=count+1;
+            }
+        </script>
+    </head>
+    <body>
+        <div class="right" id="right">
+            <div class="send"><input type="button" value="SEND"></div>
+            <div class="save"><input type="button" value="SAVE"></div>
+        </div>
+        <div class="main" id="main">
+            
+            <form name="presc">
+                <div class="row">HOSPITAL NAME:</div>
+                <input type="text" class="hsp_name" name="hsp_name"><br>
+
+                <div class="row">Doctor NAME:</div>
+                <input type="text" class="doc_name" name="doc_name"><br>
+
+                <div class="row">PATIENT NAME:</div>
+                <input type="text" class="pt_name" name="pt_name"><br><hr><hr>
+
+                <div class="row">SELECT MED</div>
+                <select name="med" id="med_select">
+                    <option value="Acetaminophen">Acetaminophen</option>
+                    <option value="Adderall">Adderall</option>
+                    <option value="Amitriptyline">Amitriptyline</option>
+                </select>
+                  
+                <div class="row">QUANTITY</div>
+                <input type="number" class="quan" name="quan"><br>
+
+                <div class="row">TIMING</div>
+
+                <label>MORNING</label>
+                <input type="checkbox" id="time" name="mor" value="morning">
+
+                <label>AFTERNOON</label>
+                <input type="checkbox" id="time1" name="noon" value="noon">
+
+                <label>EVENING</label>
+                <input type="checkbox" id="time2" name="eve" value="evening">
+
+                <label>NIGHT</label>
+                <input type="checkbox" id="time3" name="night" value="night"><br><br>
+
+                <input type="button" name="button" value="ADD" onclick="AddtoPrec();"><br><br>
+            </form>
+        </div>
+        
+            
+        
+    </body>
+</html>
